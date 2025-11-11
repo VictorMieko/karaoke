@@ -47,7 +47,12 @@ def filter_karaoke_data(df: pd.DataFrame, query: str) -> pd.DataFrame:
         df["numero"] + " " + df["musica"] + " " + df["artista"] + " " + df["genero"]
     ).map(_normalize_text)
 
-
+    # o código original não retornava nada (None)
+    # pega o texto encontrado no dataframe e filtra ele
+    mask = search_text.str.contains(normalized_query, na=False)
+    
+    # Retorna o dataframe filtrado
+    return df[mask]
 
 """
 import streamlit as st

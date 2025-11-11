@@ -1,0 +1,6 @@
+__paycache__/
+venv/
+env/
+.venv/
+.env/
+*.log
